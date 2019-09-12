@@ -29,9 +29,9 @@
 			<key>metadata</key>
 			<dict>
 				<key>bundle-identifier</key>
-				<string>com.tyicd.HeiLongJiangTranscribingCeshi</string>
+				<string>com.ljicd.HeiLongJiangTranscribing</string>
 				<key>bundle-version</key>
-				<string>19.090601</string>
+				<string>19.091201</string>
 				<key>kind</key>
 				<string>software</string>
 				<key>title</key>
