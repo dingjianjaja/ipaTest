@@ -11,7 +11,7 @@
 					<key>kind</key>
 					<string>software-package</string>
 					<key>url</key>
-					<string>https://github.com/dingjianjaja/ipaTest/raw/master/TYShangHaiUnicomPro.ipa</string>
+					<string>https://raw.githubusercontent.com/dingjianjaja/ipaTest/master/TYShangHaiUnicomPro.ipa</string>
 				</dict>
 				<dict>
 					<key>kind</key>
