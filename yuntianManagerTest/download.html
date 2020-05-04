@@ -1,0 +1,73 @@
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>自动识别下载</title>
+</head>
+<body>
+<div id="divMsg"></div>
+<img id="imgIOSHelp" src="Style/Images/IOSDownLoadHelp.png" style="display:none;" />
+
+</body>
+</html>
+<script type="JavaScript" src="http://www.searchnc.com/cgi-bin/gethttp"></script>
+<script type="text/javascript">
+        var browser = {
+            versions: function () {
+                var u = navigator.userAgent;
+                return { //移动终端浏览器版本信息
+                    ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                    android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
+                    iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+                    iPad: u.indexOf('iPad') > -1, //是否iPad
+                };
+            }(),
+        }
+        if (browser.versions.iPhone || browser.versions.iPad || browser.versions.ios) {
+            var url = getiOSAppUrl();
+            //document.writeln("如果没有响应,请用手机自带浏览器打开,...");
+            document.getElementById("divMsg").innerHTML = "点击右上角，通过Safari打开";
+            document.getElementById("imgIOSHelp").style.display = "";
+            window.location.href = url;
+
+        } else if (browser.versions.android) {
+            //document.writeln("下载已经开始...");
+            document.getElementById("divMsg").innerHTML = "下载已经开始...";
+            window.location.href = "http://42.236.3.100:16930/UploadFiles/Resource/Mobile/App/2.0.0_2005031159.apk";
+
+        } else {
+            // var url = getiOSAppUrl();
+            document.getElementById("divMsg").innerHTML = "请用手机浏览器打开，暂时不支持此设备型号：<br>" + navigator.userAgent + "<br>" + document.head
+        }
+
+    function getiOSAppUrl() {
+        var _appid = getPlistUrl();
+        return "itms-services://?action=download-manifest&url=" + _appid;
+    }
+
+    //获取iOS 下载配置文件plist地址
+    function getPlistUrl() {
+        // 云天管理APP
+        if (location.href.indexOf('type=2') > -1) {
+            return "";
+        }
+        // 默认为勘察APP
+        return "";
+    }
+
+
+    //获取安卓下载地址
+    function getAppFileName() {
+        //云天管理APP
+        if (location.href.indexOf('type=2') > -1) {
+            return "";
+        }
+        // 默认为勘察APP
+        return "";
+    }
+
+
+    </script>
